@@ -9,11 +9,13 @@ module.exports.iniciaChat = function (application, req, res) {
         res.render('index', { validacao: erros });
         return;
     }
-
-    application.get('io').emit(
+    var io = application.get('io');
+    
+    io.emit(
         'msgParaCliente', 
         { apelido: dadosForm.apelido,
-          mensagem: 'acabou de entrar no chat' });
+          mensagem: 'acabou de entrar no bate-papo' 
+        });
 
-    res.render('chat');
+    res.render('chat', { dadosForm: dadosForm });
 };

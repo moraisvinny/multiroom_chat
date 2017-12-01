@@ -34,7 +34,7 @@ app.use(expressValidator());
 /* consign auto-loads */
 consign()
     .include('app/routes')
-    .then('app/models')
+    //.then('app/models')
     .then('app/controllers')
     .into(app);
 
